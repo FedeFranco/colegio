@@ -19,7 +19,7 @@ class NotasController extends \yii\web\Controller
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             # code...
             $calif = new Nota;
-            if ($calif->poner($model->alumno,$model->asignatura,$model->nota)) {
+            if ($calif->poner($model->alumno,$model->asignatura,$model->not)) {
                 # code...
                 //return $this->render('calificar',['model'=>$model]);
                 echo "hola";

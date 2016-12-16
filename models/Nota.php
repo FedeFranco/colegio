@@ -56,18 +56,17 @@ class Nota extends \yii\db\ActiveRecord
 
     public function poner($alumno,$asignatura,$nota)
     {
-        $this->alumno_id = Alumno::find()->select(['id'])
+        $this->alumno_id = Alumno::find()->select('id')
         ->where(['nombre_alumno'=>$alumno])->scalar();
 
-        $asignatura = Asignatura::find()
+        $this->asignatura_id = Asignatura::find()
         ->select('id')
-        ->where(['nombre_asignatura'=>$asignatura])->one();
+        ->where(['nombre_asignatura'=>$asignatura])->scalar();
 
-
-        $this->asignatura_id = $asignatura->id;
         $this->nota = $nota;
-        var_dump($this->nota); die();
+        //var_dump($this->nota); die();
         $this->save();
+        echo 'holap';
         return true;
     }
 
